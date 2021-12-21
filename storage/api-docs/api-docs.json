@@ -1,0 +1,3807 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "One Medy API Documentation",
+        "description": "One Medy APi Service to be consumed by client Application",
+        "contact": {
+            "email": "info@walexbiznig.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/activity/add": {
+            "post": {
+                "tags": [
+                    "Activity"
+                ],
+                "summary": "system admin creates activity",
+                "operationId": "7f2ec64111f2915afeae66346ec009c3",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateActivityRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/activity/get/{id}": {
+            "get": {
+                "tags": [
+                    "Activity"
+                ],
+                "summary": "Get activity by id",
+                "description": "Returns activity by id",
+                "operationId": "getActivities",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/administrator/summary": {
+            "get": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "To get count of summary of the application",
+                "description": "Returns counts",
+                "operationId": "getSummary",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/administrator/appointments": {
+            "get": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "To get all appointments details",
+                "description": "Returns Appointments",
+                "operationId": "getAppointments",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/adminstrator/appointmentfee/update": {
+            "post": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "Adjust appointment fee",
+                "operationId": "7c7b0c21fa17802c5aacfd58a06a3206",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AppointmentFeeRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/getallavailability": {
+            "get": {
+                "tags": [
+                    "ApplicationData"
+                ],
+                "summary": "Get list of statuses away,available,offline",
+                "description": "Returns list of all statuses for avilability",
+                "operationId": "getApplicationDatas",
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/getallappointmentstatus": {
+            "get": {
+                "tags": [
+                    "ApplicationData"
+                ],
+                "summary": "Get list of statuses accept,decline",
+                "description": "Returns list of all statuses for avilability",
+                "operationId": "getApplicationDatas",
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/customer/checkavailability": {
+            "post": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "Check doctor's availability",
+                "operationId": "eb1b2043ea13a5943557385282e34388",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckAvailabilityRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/customer/create": {
+            "post": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "a customer can create an appointment",
+                "operationId": "0a4d62140c84cf3f34f009112dac4a13",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateAppointmentRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/changestatus/{id}": {
+            "patch": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "to update the status of an appointment",
+                "operationId": "8329973afa100d95f9b5f827a044fdd0",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangeAppointmentStateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/doctor/{id}": {
+            "get": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "To get the appointments of a doctor",
+                "operationId": "70dce3a6f1422f0c566d76a52fff41bf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "doctor id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/customer/{id}": {
+            "get": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "To get the appointments of a customer",
+                "operationId": "5fd0903f6ffb70f737522258c2b8fc89",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/checktime/{id}": {
+            "get": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "To check if it's time to proceed with zoom meeting",
+                "operationId": "a91b90f25bc52d4169a1a0570af82e17",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "appointment id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/update/{id}": {
+            "patch": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "To update the appointment step after a zoom meeting",
+                "operationId": "f894b15c0f74831664281a3aaf92ec72",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "appointment id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/diagnosis/create": {
+            "post": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "create an appointment Diagnosis",
+                "operationId": "89aa0fd7967ce30a41b1bab7feaa1c15",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateAppointmentDiagnosisRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/getbyid/{id}": {
+            "get": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "To get a single apppointment",
+                "operationId": "5ede133a1d397f67637210b0d67f88df",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "appointment id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/appointment/labtest/skip/{id}": {
+            "patch": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "To skip labtest for an appointment",
+                "operationId": "a7bfc38b53e501d646ef29c421e3f094",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/lastappointment/user/{id}": {
+            "get": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "To get the last or latest appointment of a user with the appointment diagnosis",
+                "operationId": "ffb9f64a0c109758dcdcf0fff5547929",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "userId",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/prescriptions/appointment/{id}": {
+            "get": {
+                "tags": [
+                    "Appointment"
+                ],
+                "summary": "To get the prescriptions of an appointment",
+                "operationId": "2d8176a419a9b4a79367ac5e44b2fdf6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Appointment Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/register": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "register user with basic detail",
+                "operationId": "3745f4df64a4b5123749f6463365b55a",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/resend-otp": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "request for new otp after registeration",
+                "operationId": "7d5faf19119d796670f724982881885d",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/IDRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "login user with email and password",
+                "operationId": "bb41d9524d1781b0e0f057673979e5c7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/verify": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "to verify otp",
+                "operationId": "9a0a1b722d9010f178c41f373c456501",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VerifyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/logout": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "logout from the system",
+                "operationId": "944f39c800d7ae24b55b18868e032d07",
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/userinfo": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get detail of a user",
+                "description": "Returns user detail",
+                "operationId": "getUserInfo",
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/users": {
+            "get": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "Get list of users",
+                "description": "Returns list of users",
+                "operationId": "getUser",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/forgotpassword": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "for user who forgot thier password",
+                "operationId": "0b37801fb0fe8ec7106b994d0446575a",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/verifyforgotpassword": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "for user who forgot thier password",
+                "operationId": "1bbac384d7554d147fa610d55c958ff5",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/changepassword": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "for user who forgot thier password",
+                "operationId": "4e8b6163a562896c403ea379f61d008e",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/updateuser": {
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "to update user detail",
+                "operationId": "0ad4ecb61d8e1eebd91f01db693b14d4",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateUserRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/patient/detailscount/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "to get user appointtment statistics",
+                "operationId": "800edd826a29ba31df72be306a9c5cc1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Doctors Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/get/user/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "To get user details",
+                "operationId": "b9bd7dc5e914e5f3b05dabee38beb8f1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/bank-detail/add": {
+            "post": {
+                "tags": [
+                    "Bank Detail"
+                ],
+                "summary": "user adds his bank details",
+                "operationId": "be8e5f66510be647fd998add5d3ce9db",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateBankDetailRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/bank-detail/byid/": {
+            "get": {
+                "tags": [
+                    "Bank Detail"
+                ],
+                "summary": "Get bank detail by user id",
+                "description": "Returns the bank detail of the specified user",
+                "operationId": "getById",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/biodata/byid/": {
+            "get": {
+                "tags": [
+                    "Biodata"
+                ],
+                "summary": "Get bio data by user id",
+                "description": "Returns bio data of the specified user",
+                "operationId": "getById",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/biodata/add": {
+            "post": {
+                "tags": [
+                    "Biodata"
+                ],
+                "summary": "Create a new biodata for a user. Updates if biodata already exists.",
+                "operationId": "5c0225770541b4ecd2ca7bf7acb3df0e",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateBiodataRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/create": {
+            "post": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "register a doctor",
+                "operationId": "13f3be7f9c9b4311c65117a068a15b85",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateDoctorRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/changestate/{id}": {
+            "patch": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "change the state of a doctor",
+                "operationId": "02118081620b4b480f439d7deb596f43",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Doctors Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangeStateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctors": {
+            "get": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "Get list of doctors",
+                "description": "Returns list of all doctors",
+                "operationId": "getDoctors",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctordetail/{id}": {
+            "get": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "to get doctor detail",
+                "operationId": "5793d89e2dae7f949505e83e7a628d04",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Doctors Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctordetail/user/{id}": {
+            "get": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "to get doctor detail",
+                "operationId": "a11fdeda2a86cf0160091361750ada24",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Doctors Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/updatedoctor": {
+            "patch": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "to update user detail",
+                "operationId": "bd1075647ee1ef9744f3fc43fb3324ec",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateDoctorRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/detailscount/{id}": {
+            "get": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "to get doctor appointtment statistics",
+                "operationId": "19b8d65f2e0fef25d78da4de46a6865c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Doctors Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/account/{id}": {
+            "get": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "To get doctor's accounting data",
+                "operationId": "eb69b8c898fb9cf1c9b05dbcfb9b04bc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Doctors Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctorspecialization/create": {
+            "post": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "doctors add thier specializations",
+                "operationId": "a5549c50e0a788539f22d31e87ad4303",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateDoctorSpecializationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctorsearch": {
+            "get": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "to get doctor detail",
+                "operationId": "2e0227de60aca5fa448dd22c1ffebc21",
+                "parameters": [
+                    {
+                        "name": "specialization_id",
+                        "in": "query",
+                        "description": "For SPecialization"
+                    },
+                    {
+                        "name": "availability",
+                        "in": "query",
+                        "description": "For SPecialization"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/specialization/{id}": {
+            "get": {
+                "tags": [
+                    "Doctor"
+                ],
+                "summary": "To get the doctor's specializtation",
+                "operationId": "601bd28072a64cbbcbd742029250f8c5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "doctor id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/drugs/all": {
+            "get": {
+                "tags": [
+                    "DrugList"
+                ],
+                "summary": "Get list of drugs",
+                "description": "Returns list of drugs",
+                "operationId": "getDrugs",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/drug/byname/": {
+            "get": {
+                "tags": [
+                    "DrugList"
+                ],
+                "summary": "Get drug by name",
+                "description": "Returns drug with the specified name",
+                "operationId": "getDrugByName",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/drug/byid/": {
+            "get": {
+                "tags": [
+                    "DrugList"
+                ],
+                "summary": "Get drug by id",
+                "description": "Returns drug with the specified id",
+                "operationId": "getDrugById",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/drug/add": {
+            "post": {
+                "tags": [
+                    "DrugList"
+                ],
+                "summary": "system admin adds drugs list",
+                "operationId": "3524e6271963a877ba1ac80d4e8c513c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateDrugListRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/drug/delivery/{id}": {
+            "post": {
+                "tags": [
+                    "Drug Prescription"
+                ],
+                "summary": "user chooses how he wants to recieve drug",
+                "operationId": "a3c066a2f13a76f337d8cd62ba9ebb38",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePrescriptionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/drug/prescription/byappointment/": {
+            "get": {
+                "tags": [
+                    "Drug Prescription"
+                ],
+                "summary": "Get prescription by appointment id",
+                "description": "Returns the prescription the specified user",
+                "operationId": "getByAppointmentId",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/drug/prescribe": {
+            "post": {
+                "tags": [
+                    "Drug Prescription"
+                ],
+                "summary": "doctor creates prescription",
+                "operationId": "bb8309bc6a8fd7aeec3a66cfbfc9228a",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePrescriptionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/drug-prescription/byprescriptionid": {
+            "get": {
+                "tags": [
+                    "Drug Prescription"
+                ],
+                "summary": "doctor creates prescription",
+                "operationId": "72622832589ea561151ab410e3d963f7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePrescriptionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/drug/prescription-item/delete{id}": {
+            "post": {
+                "tags": [
+                    "Drug Prescription"
+                ],
+                "summary": "delete prescription id",
+                "operationId": "b69dc49227406e208b1ed877ca128fcf",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePrescriptionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/labtest/add": {
+            "post": {
+                "tags": [
+                    "Labtest"
+                ],
+                "summary": "Create a new lab test for a user.",
+                "operationId": "1c6f7157e4c06ec4fc68b0e43c078979",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateLabtestRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/user/labtest/{id}": {
+            "get": {
+                "tags": [
+                    "Labtest"
+                ],
+                "summary": "Returns a user lab tests",
+                "description": "Returns lab tests of provided user id",
+                "operationId": "id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/labtest/{id}": {
+            "get": {
+                "tags": [
+                    "Labtest"
+                ],
+                "summary": "Return lab tests from a doctor",
+                "description": "Returns lab tests made by the provided doctor id",
+                "operationId": "id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Doctor Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/lab/external/{id}": {
+            "patch": {
+                "tags": [
+                    "Labtest"
+                ],
+                "summary": "change the state of isexternallab column to 1",
+                "operationId": "8765dc4d6211dcaeef6c7df29095d6ca",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Appointment Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateIsExternalLabRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/lab/internal/{id}": {
+            "patch": {
+                "tags": [
+                    "Labtest"
+                ],
+                "summary": "change the state of isexternallab column to 0",
+                "operationId": "be5f2fa2e0e4b3581276ebb53b357a92",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Appointment Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateIsExternalLabRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/labtests": {
+            "get": {
+                "tags": [
+                    "Labtest"
+                ],
+                "summary": "Return a json array of all the labtests sent to the user.",
+                "description": "Returns all lab tests both the completed and uncompleted. If isdoctorended is placed in the URL as parameter with a value of\r\n     * 1, it will return all completed tests. The opposite happens if the value of isdoctorended is made 0",
+                "operationId": "getAllLabtests",
+                "parameters": [
+                    {
+                        "name": "isdoctorended",
+                        "in": "parameter",
+                        "description": "Status of the lab test",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/isdoctorended/{id}": {
+            "patch": {
+                "tags": [
+                    "Labtest"
+                ],
+                "summary": "change the state of isdoctorended column to 1 and changes the appointment step to 3",
+                "operationId": "30f8f9fd5f4e2f62fdfb5b6d2c16094b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Appointment Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateIsDoctorEndedRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/updateresult/labtest/{id}": {
+            "patch": {
+                "tags": [
+                    "Labtest"
+                ],
+                "summary": "Update the result in the labtest table",
+                "operationId": "4a5250d3f95b80a14c14c667bfe15313",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Appointment Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateResultRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/labtestrequest/add": {
+            "post": {
+                "tags": [
+                    "Labtest Request"
+                ],
+                "summary": "Create a new test request to the Labs.",
+                "operationId": "cfc80e17f5ffaaf3b9a6a7e0d1c78201",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateLabRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/labtestrequests": {
+            "get": {
+                "tags": [
+                    "Labtest Request"
+                ],
+                "summary": "Return a json array of all the tests requests sent to the labs.",
+                "description": "Returns all test requests both the completed and uncompleted sent to the Laboratory. If iscompleted is placed in the URL as parameter with a value of\r\n     * 1, it will return all completed tests. The opposite happens if the value of iscompleted is made 0",
+                "operationId": "getAllTestRequests",
+                "parameters": [
+                    {
+                        "name": "iscompleted",
+                        "in": "parameter",
+                        "description": "Status of the Lab test",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/labtest/complete/{id}": {
+            "patch": {
+                "tags": [
+                    "Labtest Request"
+                ],
+                "summary": "Set a lab test request as completed.",
+                "operationId": "b526f285aee456f3e59378bcbfb92393",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateLabRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/labtestrequest/tenant": {
+            "get": {
+                "tags": [
+                    "Labtest Request"
+                ],
+                "summary": "Get list of labtest request by tenant id",
+                "description": "Returns list all labtest requests by passing a tenant id query parameter",
+                "operationId": "TenantId",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "in": "query",
+                        "description": "Tenant id"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/labtestrequest/result/{labtest_id}": {
+            "patch": {
+                "tags": [
+                    "Labtest Request"
+                ],
+                "summary": "Post labtest result and conclusion",
+                "description": "Post labtest result and conclusion",
+                "operationId": "TenantId",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "in": "query",
+                        "description": "Tenant id"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/notification/add": {
+            "post": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "system admin creates notification",
+                "operationId": "1b54ddea847a9e143db01f32a5c0621f",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateNotificationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/notification/get/{id}": {
+            "get": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "Get notification by user id",
+                "description": "Returns notification by id",
+                "operationId": "getNotificationById",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/pharmacy/requests/all": {
+            "get": {
+                "tags": [
+                    "Pharmacy"
+                ],
+                "summary": "Get list of pharmacy requests",
+                "description": "Returns list all pharmacy requests",
+                "operationId": "index",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/pharmacyorder/tenant": {
+            "get": {
+                "tags": [
+                    "Pharmacy Orders"
+                ],
+                "summary": "Get list of pharmacy orders by tenant id",
+                "description": "Returns list all pharmacy orders by tenant id",
+                "operationId": "TenantId",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "in": "query",
+                        "description": "Tenant Id"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/pharmacyorder/complete": {
+            "get": {
+                "tags": [
+                    "Pharmacy Orders"
+                ],
+                "summary": "complete pharmacy order",
+                "description": "set pharmacy order to complete",
+                "operationId": "completeOrder",
+                "parameters": [
+                    {
+                        "name": "tenant_id",
+                        "in": "query",
+                        "description": "Tenant Id"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/rate/{id}": {
+            "post": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "rate a doctor",
+                "operationId": "fd1503ce035d5941342df32b07b079c2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateRatingRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/doctor/rating/{id}": {
+            "get": {
+                "tags": [
+                    "Rating"
+                ],
+                "summary": "Get doctor's rating",
+                "operationId": "ba87273b72346e132c059e03cbcc9306",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateRatingRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/specialization/create": {
+            "post": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "register a specialization",
+                "operationId": "4f9448dd5047cf0de464335dacb84bab",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateSpecializationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/specialization": {
+            "get": {
+                "tags": [
+                    "ApplicationData"
+                ],
+                "summary": "Get list of specialization",
+                "description": "Returns list of all specialization",
+                "operationId": "getSpecializations",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/specialization/changestate/{id}": {
+            "patch": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "change the state of a specialization",
+                "operationId": "576bfe0cf768576ea465106bbc21a91d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Specialization Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangeStateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/specializationdetail/{id}": {
+            "get": {
+                "tags": [
+                    "ApplicationData"
+                ],
+                "summary": "to get specialization detail",
+                "operationId": "39e6f144f8c8f5aa246e0cc263f74dcc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Specializations Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/states/all": {
+            "get": {
+                "tags": [
+                    "States"
+                ],
+                "summary": "Get list of states",
+                "description": "Returns list of states",
+                "operationId": "stateindex",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/tenant/create": {
+            "post": {
+                "tags": [
+                    "Tenant"
+                ],
+                "summary": "register a Tenant",
+                "operationId": "c6dd8b5fa113bb112d7e5954f6c976f4",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTenantRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/tenants": {
+            "get": {
+                "tags": [
+                    "Tenant"
+                ],
+                "summary": "Get list of tenants",
+                "description": "Returns list of tenants",
+                "operationId": "getTenants",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    },
+                    {
+                        "name": "tenanttypeid",
+                        "in": "query",
+                        "description": "the Id of the tenanttype"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/tenant/{id}": {
+            "get": {
+                "tags": [
+                    "Tenant"
+                ],
+                "summary": "To get a particular tenant",
+                "operationId": "bde219ee84137c680cde940fc86c4780",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Tenant id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/tenant/{id}/status": {
+            "patch": {
+                "tags": [
+                    "Administrator"
+                ],
+                "summary": "change the status of a tenant",
+                "operationId": "594b4a50e2a85751d9af8a6d36e2af83",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Tenant Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangeTenantStatus"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/tenant/member/create": {
+            "post": {
+                "tags": [
+                    "TenantMember"
+                ],
+                "summary": "register a Tenant Member",
+                "operationId": "4d3ddf4854e1813f448fbbfc27dbd466",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateMemberRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/tenant/{id}/members": {
+            "get": {
+                "tags": [
+                    "TenantMember"
+                ],
+                "summary": "To get the members of a tenant",
+                "operationId": "d60a3f8d3320a9a442a7b75d8188364a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Tenant id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/tenantmember/{user_id}": {
+            "get": {
+                "tags": [
+                    "TenantMember"
+                ],
+                "summary": "Get tenant member by user id",
+                "description": "Returns all tenant member with the specified user id",
+                "operationId": "getByUserId",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/transactions/all": {
+            "get": {
+                "tags": [
+                    "Wallet Transaction"
+                ],
+                "summary": "Get list of all transactions",
+                "description": "Returns list of transactions",
+                "operationId": "index",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/transactions/byid/{id}": {
+            "get": {
+                "tags": [
+                    "Wallet Transaction"
+                ],
+                "summary": "Get transactions by id",
+                "description": "Returns all transactions with the specified user id",
+                "operationId": "getById",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/wallet-tx/all": {
+            "get": {
+                "tags": [
+                    "DrugList"
+                ],
+                "summary": "Get list of drugs",
+                "description": "Returns list of drugs",
+                "operationId": "getDrugs",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/wallet-tx/byid": {
+            "get": {
+                "tags": [
+                    "DrugList"
+                ],
+                "summary": "Get drug by id",
+                "description": "Returns drug with the specified id",
+                "operationId": "getDrugById",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/wallet-tx/add": {
+            "post": {
+                "tags": [
+                    "Wallet Transaction"
+                ],
+                "summary": "Add data into the wallet transaction table.",
+                "operationId": "89590083baa6304555fdf63abdd320ce",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateLabtestRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/wallet/withdraw": {
+            "post": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "Make a withdrawal request",
+                "operationId": "5fe04aa9db060ed002019b528afd95f5",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateWithdrawalRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/wallet/withdrawals": {
+            "get": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "To get all withdrawals",
+                "description": "Returns Withdrawals requests",
+                "operationId": "getWithdrawals",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Size"
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/wallet/withdrawals/{id}": {
+            "get": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "to get withdrawals request by userid",
+                "operationId": "473e24c71eb71dfcb8d0efea7bb03e76",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/api/v1/wallet/withdraw/{id}": {
+            "get": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "to get a withdrawal request by withdrawal id",
+                "operationId": "09dfaff9301f027ac5b1811849a0c721",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "withdrawal Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "Update status of withdrawal",
+                "operationId": "bb58fe2029131bd15f2c6e54a33a6415",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Withdrawal Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateWithdrawalRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CreateActivityRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "title": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "user_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "description": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "iserror": {
+                                "type": "boolean",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateActivityRequest"
+                    }
+                ]
+            },
+            "AppointmentFeeRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "amount": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/AppointmentRequest"
+                    }
+                ]
+            },
+            "ChangeStateRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "isactivated": {
+                                "type": "boolean",
+                                "format": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "is_deleted": {
+                                "type": "boolean",
+                                "format": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "isverified": {
+                                "type": "boolean",
+                                "format": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ChangeStateRequest"
+                    }
+                ]
+            },
+            "ChangeAppointmentStateRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ChangeAppointmentStateRequest"
+                    }
+                ]
+            },
+            "CheckAvailabilityRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "starts_at": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "ends_at": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CheckAvailabilityRequest"
+                    }
+                ]
+            },
+            "CreateAppointmentDiagnosisRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "conclusion": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "appointment_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "healthchallenges": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateAppointmentDiagnosisRequest"
+                    }
+                ]
+            },
+            "CreateAppointmentRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "specialization_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "doctor_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "amount": {
+                                "type": "number",
+                                "format": "decimal"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "user_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "note": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "starts_at": {
+                                "type": "string",
+                                "format": "datatime"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "ends_at": {
+                                "type": "string",
+                                "format": "datetime"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "ref_id": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "payment_methods_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateAppointmentRequest"
+                    }
+                ]
+            },
+            "ChangePasswordRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "password": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "format": "int"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ChangePasswordRequest"
+                    }
+                ]
+            },
+            "IDRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "format": "int"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/IDRequest"
+                    }
+                ]
+            },
+            "LoginRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "password": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/LoginRequest"
+                    }
+                ]
+            },
+            "UpdateUserRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "facebook": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "twitter": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "bio": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "instagram": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "avatar": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "linkedin": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/UpdateUserRequest"
+                    }
+                ]
+            },
+            "RegisterRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "password": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "password_confirmation": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "phonenumber": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "roles_id": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "firstname": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "lastname": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "city": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "gender": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "address": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "state_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/RegisterRequest"
+                    }
+                ]
+            },
+            "VerifyRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "password": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "format": "int"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "pin": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/VerifyRequest"
+                    }
+                ]
+            },
+            "CreateBankDetailRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "account_number": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "bank": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "sort_code": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateBankDetailRequest"
+                    }
+                ]
+            },
+            "CreateBiodataRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "user_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "weight": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "height": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "boodgroup": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "genotype": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateBiodataRequest"
+                    }
+                ]
+            },
+            "CreateDoctorRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "yearsofexperience": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "folio_id": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "proffessional_bio": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateDoctorRequest"
+                    }
+                ]
+            },
+            "CreateDoctorSpecializationRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "specialization_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "doctor_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateDoctorSpecializationRequest"
+                    }
+                ]
+            },
+            "UpdateDoctorRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "yearsofexperience": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "consultation_fee": {
+                                "type": "number",
+                                "format": "float128bit"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "availability": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "proffessional_bio": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/UpdateDoctorRequest"
+                    }
+                ]
+            },
+            "CreateDrugListRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "isavailable": {
+                                "type": "boolean",
+                                "format": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "amount": {
+                                "type": "decimal",
+                                "format": "decimal"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateDrugListRequest"
+                    }
+                ]
+            },
+            "CreatePrescriptionRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "drug_prescription_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "dosage_description": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "amount": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "total": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "appointment_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreatePrescriptionRequest"
+                    }
+                ]
+            },
+            "UpdatePrescriptionRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "appointment_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "delivery_type": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/UpdatePrescriptionRequest"
+                    }
+                ]
+            },
+            "CreateLabRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "labtest_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "tenant_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "delivery_type": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "integer": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateLabRequest"
+                    }
+                ]
+            },
+            "CreateLabtestRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "title": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "appointment_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "result": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "description": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateLabtestRequest"
+                    }
+                ]
+            },
+            "UpdateIsDoctorEndedRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "appointment_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/UpdateIsDoctorEndedRequest"
+                    }
+                ]
+            },
+            "UpdateIsExternalLabRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "appointment_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/UpdateIsExternalLabRequest"
+                    }
+                ]
+            },
+            "CreateNotificationRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "user_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "title": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "description": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "isread": {
+                                "type": "boolean",
+                                "format": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateNotificationRequest"
+                    }
+                ]
+            },
+            "CreatePharmacyOrderRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "drug_prescription_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "tenant_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "deliverychannel": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreatePharmacyOrderRequest"
+                    }
+                ]
+            },
+            "CreateRatingRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "rating": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "user_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "rated_user_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "appointment_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateRatingRequest"
+                    }
+                ]
+            },
+            "CreateSpecializationRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "description": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateSpecializationRequest"
+                    }
+                ]
+            },
+            "ChangeTenantStatus": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "status": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ChangeTenantStatus"
+                    }
+                ]
+            },
+            "CreateMemberRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "phonenumber": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "roles_id": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "firstname": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "lastname": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "password": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "gender": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "tenant_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "state_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "tenant_role_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateMemberRequest"
+                    }
+                ]
+            },
+            "CreateTenantRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "phonenumber": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "roles_id": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "firstname": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "lastname": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "city": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "address": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "state_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "tenant_type_id": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateTenantRequest"
+                    }
+                ]
+            },
+            "CreateWalletRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "description": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateWalletRequest"
+                    }
+                ]
+            },
+            "CreateWithdrawalRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "amount": {
+                                "type": "integer",
+                                "format": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/CreateWithdrawalRequest"
+                    }
+                ]
+            },
+            "UpdateWithdrawalRequest": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "format": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/components/schemas/UpdateWithdrawalRequest"
+                    }
+                ]
+            }
+        },
+        "responses": {
+            "403": {
+                "description": "Forbidden"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "One Medy Service",
+            "description": "API Endpoints of One"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
